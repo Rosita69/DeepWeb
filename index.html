@@ -1,4 +1,18 @@
-var nouns = new Array(
+<!DOCTYPE=HTML>
+<html>
+    <head>
+        <title>Jaden Smith as a Service</title>
+        <script src="jquery-1.11.0.min.js"></script>
+        <script src="mespeak/mespeak.js"></script>
+    </head>
+    <body>
+        <center>
+        <div id="jaden" style="font-size:40pt; width: 100%; text-align: center; margin: 0 auto;">
+
+        </div>
+        <script type="text/javascript">
+        <!--
+            nouns = new Array(
 "aardvark",
 "abyssinian",
 "accelerator",
@@ -2334,37 +2348,63 @@ var nouns = new Array(
 "zoo",
 "zoology");
 
-function manyVowels(n){
-    var second = n.charAt(n.length-2);
-    if (second === 'a' || second === 'e' || second === 'i' || second === 'o' || second === 'u'){
-        return true;
-    }
-    return false;
-}
+            function clickImage(){
+                document.getElementById('thiskid');
+            }
+
+            function reloadPage(){
+                window.location.reload();
+            }
+
+            function manyVowels(n){
+                var second = n.charAt(n.length-1);
+                if (second === 'a' || second === 'e' || second === 'i' || second === 'o' || second === 'u'){
+                    return true;
+                }
+                return false;
+            }
 
 
-function pluralize(n){
-    n = String(n);
-    var last = n.charAt(n.length-1);
-    if (last === 'h' || last === 's' || last === 'x'){
-        //console.log(n);
-        return n + "es";
-    }
-    if (last === 'y' && !manyVowels(n)){
-        //console.log(n);
-        return n.substr(0, n.length-1) + "ies";
-    }
-    //console.log(n);
-    return n + "s";
-}
-
-function generateSentence(){
-    var noun1 = Math.floor (Math.random() * nouns.length);
-    var noun2 = Math.floor (Math.random() * nouns.length);
-    return "How can " + pluralize(nouns[noun1]) +
-            " be real if our " + pluralize(nouns[noun2]) + " aren't real?";
-}
-var posts = document.getElementsByClassName("userContent");
-for (var i in posts){
-    posts[i].innerHTML = generateSentence();
-}
+            function pluralize(n){
+                n = String(n);
+                var last = n.charAt(n.length-1);
+                if (last === 'h' || last === 's' || last === 'x'){
+                    console.log(n);
+                    return n + "es";
+                }
+                if (last === 'y' && !manyVowels(n)){
+                    console.log(n);
+                    return n.substr(0, n.length-1) + "ies";
+                }
+                console.log(n);
+                return n + "s";
+            }
+            var noun1 = Math.floor (Math.random() * nouns.length );
+            var noun2 = Math.floor (Math.random() * nouns.length);
+            var ourSentence = "How can " + pluralize(nouns[noun1]) + " be real if our " + pluralize(nouns[noun2]) + " aren't real?";
+            var thing = document.createElement('div');
+            thing.innerHTML = ourSentence;
+            document.getElementById('jaden').appendChild(thing);
+        </script>
+        <img id="thiskid" onclick="reloadPage()" style="text-align: middle" src="jaden.jpg" height="750"/>
+        <div id="twatter">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-text="yellow">Tweet</a>
+            <script>
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+            </script>
+        </div>
+        <script>
+            $('#twatter a').attr("data-text", ourSentence);
+        </script>
+        <script>
+            meSpeak.loadConfig("mespeak/mespeak_config.json");
+            meSpeak.loadVoice('mespeak/voices/en/en.json');
+            meSpeak.speak(ourSentence);
+        </script>
+        <!--
+        <button onclick="speak();">Hear it!</button>
+        -->
+        <h6 style="font-size:10 width:100%; text-align: center;">Thank you based god</h6>
+    </center>
+    </body>
+</html>
