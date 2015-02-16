@@ -1,0 +1,35 @@
+{
+	"manifest_version": 1,
+
+	"author": "Kenneth Ozdowy",
+	"name": "DeepWeb",
+	"description": "Deepens your Facebook",
+	"version": "0.1",
+	"homepage_url": "https://github.com/kozdowy/DeepWeb",
+
+	"icons": {
+		"16": "icon/icon16.png",
+		"48": "icon/icon48.png",
+		"128": "icon/icon128.png"
+	},
+
+	"browser_action": {
+                "default_title": "DeepWeb"
+	},
+
+	"incognito": "split",
+	"offline_enabled": true,
+
+	"permissions": [
+		"<all_urls>",
+		"activeTab",
+		"contentSettings",
+		"contextMenus",
+		"storage"
+	],
+    "web_accessible_resources": ["script.js"],
+
+    "background": {
+        "scripts": ["run.js"]
+    }
+}
